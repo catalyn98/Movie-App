@@ -16,6 +16,7 @@ data class Genre(
 
     @ColumnInfo(name = "name")
     var name: String,
+
     @ColumnInfo(name="isSelected")
     var isSelected: Boolean= false
 ) {

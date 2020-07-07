@@ -3,11 +3,8 @@ package com.mobiversal.movieapplication.actors_list
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 import com.mobiversal.movieapplication.R
-import com.mobiversal.movieapplication.actor.Actor
-import com.mobiversal.movieapplication.actor.ActorDTO
 import com.mobiversal.movieapplication.actor.FavouriteActor
 import com.mobiversal.movieapplication.utils.ImageLoader
 import kotlinx.android.synthetic.main.actors_list_item.view.*

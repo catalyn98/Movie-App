@@ -5,13 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobiversal.movieapplication.R
-import com.mobiversal.movieapplication.actor.ActorsRepository
-import com.mobiversal.movieapplication.actor.FavouriteActor
-import com.mobiversal.movieapplication.actors_list.Actors
-import com.mobiversal.movieapplication.actors_list.ActorsAdapter
 import com.mobiversal.movieapplication.genre.Genre
 import com.mobiversal.movieapplication.genre.GenreRepository
-import kotlinx.android.synthetic.main.activity_actors.*
 import kotlinx.android.synthetic.main.activity_genres.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope

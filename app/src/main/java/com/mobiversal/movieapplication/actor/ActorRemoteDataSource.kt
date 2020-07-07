@@ -1,6 +1,5 @@
 package com.mobiversal.movieapplication.actor
 
-import com.mobiversal.movieapplication.network.Constants
 import com.mobiversal.movieapplication.network.Constants.API_KEY
 import com.mobiversal.movieapplication.network.Constants.LANGUAGE
 import com.mobiversal.movieapplication.network.executeAndDeliver

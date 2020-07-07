@@ -1,32 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mobiversal.movieapplication">
+    package="com.mobiversal.movieapplication" >
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-
-        android:name="com.mobiversal.movieapplication.App"
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@drawable/icon_app"
         android:label="Movie application"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MenuHmaburger"
+            android:label="@string/title_activity_menu_hamburger"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
 
-        <activity android:name="com.mobiversal.movieapplication.genres_list.Genres"></activity>
-        <activity android:name="com.mobiversal.movieapplication.actors_list.Actors" /><activity
-
-            android:name="com.mobiversal.movieapplication.SplashActivity"
-
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".genres_list.Genres" />
+        <activity android:name=".actors_list.Actors" />
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.mobiversal.movieapplication.MainActivity">
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>

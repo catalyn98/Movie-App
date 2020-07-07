@@ -3,14 +3,11 @@ package com.mobiversal.movieapplication.actors_list
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mobiversal.movieapplication.MainActivity
 import com.mobiversal.movieapplication.R
 import com.mobiversal.movieapplication.actor.ActorsRepository
 import com.mobiversal.movieapplication.actor.FavouriteActor
 import kotlinx.android.synthetic.main.activity_actors.*
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

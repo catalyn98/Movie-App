@@ -3,7 +3,6 @@ package com.mobiversal.movieapplication.genre
 import com.mobiversal.movieapplication.network.Constants.API_KEY
 import com.mobiversal.movieapplication.network.Constants.LANGUAGE
 import com.mobiversal.movieapplication.network.executeAndDeliver
-import kotlinx.android.synthetic.main.activity_main.view.*
 import retrofit2.Retrofit
 import java.lang.Exception
 
