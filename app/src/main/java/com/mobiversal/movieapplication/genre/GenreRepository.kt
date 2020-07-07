@@ -3,11 +3,10 @@ package com.mobiversal.movieapplication.genre
 import com.mobiversal.movieapplication.dataBase.DataBase
 import com.mobiversal.movieapplication.network.APIClient
 
-class GenreRepository private constructor() {
-    companion object {
+class GenreRepository {
+    companion object{
         val instance = GenreRepository()
     }
-
     private val localDataSource = GenreLocalDataSource(
         DataBase.instance
     )

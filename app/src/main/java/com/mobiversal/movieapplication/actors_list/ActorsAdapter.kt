@@ -29,6 +29,8 @@ class ActorsAdapter(private val actorsList: List<FavouriteActor>?) : RecyclerVie
         fun bind(actor: FavouriteActor){
             ImageLoader.loadImage(actor.imgUrl, itemView.iv_actor, itemView.context)
             itemView.tv_actor_name.text= actor.name
+            itemView.cb_selected.setOnCheckedChangeListener(null)
+            itemView.cb_selected.isChecked = actor.isSelected
             itemView.cb_selected.setOnCheckedChangeListener { buttonView, isChecked ->
                 actor.isSelected = isChecked
             }

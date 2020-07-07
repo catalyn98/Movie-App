@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="com.mobiversal.movieapplication.Genres"></activity>
+        <activity android:name="com.mobiversal.movieapplication.genres_list.Genres"></activity>
         <activity android:name="com.mobiversal.movieapplication.actors_list.Actors" /><activity
 
             android:name="com.mobiversal.movieapplication.SplashActivity"

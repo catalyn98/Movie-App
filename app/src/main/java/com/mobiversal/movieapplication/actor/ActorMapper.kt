@@ -5,7 +5,8 @@ class ActorMapper {
         return FavouriteActor(
             id = dto.id,
             name = dto.name,
-            imgUrl = dto.imgUrl
+            imgUrl = dto.imgUrl,
+            isSelected = false
         )
     }
 }

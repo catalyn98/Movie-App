@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import com.mobiversal.movieapplication.actor.ActorsRepository
 import com.mobiversal.movieapplication.actors_list.Actors
 import com.mobiversal.movieapplication.genre.GenreRepository
+import com.mobiversal.movieapplication.genres_list.Genres
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

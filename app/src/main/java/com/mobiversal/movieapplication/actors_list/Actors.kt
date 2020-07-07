@@ -30,7 +30,7 @@ class Actors : AppCompatActivity() {
     private fun setupRecycleView() {
         val llm = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rv_actors.layoutManager = llm
-        rv_actors.adapter = adapter
+        rv_actors.adapter = ActorsAdapter(actors)
     }
 
 
@@ -38,6 +38,7 @@ class Actors : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_actors)
+        getActors()
         Log.d(TAG, "onCreate()")
     }
 
@@ -48,7 +49,7 @@ class Actors : AppCompatActivity() {
                 actors?.let { actors ->
                     ActorsRepository.replaceAll(actors)
                     withContext(Dispatchers.Main) {
-                        Log.d(TAG, actors.first().name)
+                        setupRecycleView()
                     }
                 }
             }

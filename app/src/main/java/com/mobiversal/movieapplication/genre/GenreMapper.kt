@@ -4,7 +4,8 @@ class GenreMapper {
     fun map(dto: GenreDTO): Genre{
         return Genre(
             id = dto.id,
-            name = dto.name
+            name = dto.name,
+            isSelected = false
         )
     }
 }

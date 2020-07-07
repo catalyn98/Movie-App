@@ -15,7 +15,9 @@ data class Genre(
     var id: Int,
 
     @ColumnInfo(name = "name")
-    var name: String
+    var name: String,
+    @ColumnInfo(name="isSelected")
+    var isSelected: Boolean= false
 ) {
     override fun toString(): String {
         return "FavouriteGenre(id=$id, name='$name')"
