@@ -7,9 +7,6 @@ class GenreRepository {
     companion object{
         val instance = GenreRepository()
     }
-    private val localDataSource = GenreLocalDataSource(
-        DataBase.instance
-    )
 
     private val genreLocalDataSource = GenreLocalDataSource(
         DataBase.instance

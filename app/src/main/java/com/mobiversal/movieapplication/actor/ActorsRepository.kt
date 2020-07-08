@@ -5,10 +5,6 @@ import com.mobiversal.movieapplication.network.APIClient
 
 object ActorsRepository {
 
-    private val localDataSource = ActorsLocalDataSource(
-        DataBase.instance
-    )
-
     private val actorLocalDataSource = ActorsLocalDataSource(
         DataBase.instance
     )

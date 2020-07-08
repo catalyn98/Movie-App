@@ -1,4 +1,5 @@
 package com.mobiversal.movieapplication
+
 import android.os.Bundle
 import android.view.Menu
 import com.google.android.material.floatingactionbutton.FloatingActionButton

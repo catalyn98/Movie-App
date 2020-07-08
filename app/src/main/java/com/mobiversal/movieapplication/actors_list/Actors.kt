@@ -13,24 +13,20 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-
 class Actors : AppCompatActivity() {
+    val list: List<FavouriteActor> = ArrayList()
+    private var actors: List<FavouriteActor>? = null
+    private val adapter = ActorsAdapter(getActors())
+
     companion object {
         val TAG = Actors::class.java.simpleName
     }
-
-    val list: List<FavouriteActor> = ArrayList()
-    private var actors: List<FavouriteActor>? = null
-
-    private val adapter = ActorsAdapter(getActors())
 
     private fun setupRecycleView() {
         val llm = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rv_actors.layoutManager = llm
         rv_actors.adapter = ActorsAdapter(actors)
     }
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

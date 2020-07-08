@@ -8,11 +8,10 @@ import com.mobiversal.movieapplication.actor.FavouriteActor
 import com.mobiversal.movieapplication.genre.Genre
 import com.mobiversal.movieapplication.genre.GenreDao
 
-//cream un singletone
+//se creaza un singletone
 class DataBase private constructor(){
     companion object{
         val instance  = DataBase()
-
     }
 
     @androidx.room.Database(
@@ -20,6 +19,7 @@ class DataBase private constructor(){
         version = 1
 
     )
+
     abstract class MovieAppDatabase : RoomDatabase(){
         abstract fun actorsDao(): ActorsDao
         abstract fun genresDao(): GenreDao
@@ -35,5 +35,4 @@ class DataBase private constructor(){
             "movie_app.db"
         ).build()
     }
-
 }

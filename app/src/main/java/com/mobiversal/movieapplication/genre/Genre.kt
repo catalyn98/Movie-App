@@ -23,5 +23,4 @@ data class Genre(
     override fun toString(): String {
         return "FavouriteGenre(id=$id, name='$name')"
     }
-
 }

@@ -7,7 +7,7 @@ import com.bumptech.glide.Glide
 class ImageLoader {
     companion object {
         fun loadImage(url: String, imageView: ImageView, context: Context) {
-            Glide.with(context).load(url).into(imageView)//cu glide incarcam imaginea
+            Glide.with(context).load(url).into(imageView) //cu ajutorul librariei glide incarcam imaginile
         }
     }
 }

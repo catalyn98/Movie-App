@@ -7,28 +7,35 @@
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:icon="@drawable/icon_app"
+        android:icon="@drawable/iconmovieapp"
         android:label="Movie application"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
+
+        <!--activity for MenuHamburger-->
         <activity
             android:name=".MenuHmaburger"
             android:label="@string/title_activity_menu_hamburger"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
 
+        <!--activity for Genres-->
         <activity android:name=".genres_list.Genres" />
+        <!--activity for Actors-->
         <activity android:name=".actors_list.Actors" />
+
+        <!--activity for SplashScreen-->
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--activity for MainActivity-->
         <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

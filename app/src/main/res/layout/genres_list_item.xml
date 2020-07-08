@@ -4,23 +4,29 @@
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
-    android:padding="24dp">
+    android:padding="20dp">
 
     <TextView
         android:id="@+id/tv_genre_name"
         android:layout_width="0dp"
-        android:layout_weight="0.3"
-        android:layout_marginStart="12dp"
-        tools:text="Genre"
-        android:layout_gravity="center_vertical"
         android:layout_height="wrap_content"
-        />
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="12dp"
+        android:layout_weight="0.3"
+        android:fontFamily="@font/coiny"
+        android:textColor="#F8F7F7"
+        android:textSize="20sp"
+        tools:text="Genre name" />
 
     <CheckBox
         android:id="@+id/cb_selected"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
         android:layout_gravity="center_vertical"
-        />
+        android:layout_marginStart="12dp"
+        android:buttonTint="#FF0000"
+        android:checked="true"
+        android:scrollbarSize="18sp"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
 </LinearLayout>

@@ -14,15 +14,14 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class Genres : AppCompatActivity() {
+
     private val genreRepository = GenreRepository.instance
+    private var genres: List<Genre>? = null
+    val list: List<Genre> = ArrayList()
+
     companion object {
         val TAG = Genres::class.java.simpleName
     }
-
-    val list: List<Genre> = ArrayList()
-    private var genres: List<Genre>? = null
-
-    private val adapter = GenresAdapter(getGenres())
 
     private fun setupRecycleView() {
         val llm = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
@@ -39,7 +38,6 @@ class Genres : AppCompatActivity() {
     }
 
     fun getGenres(): List<Genre>? {
-
         GlobalScope.launch(Dispatchers.IO) {
             genres = genreRepository.getAllRemote()
             genres?.let { genres ->

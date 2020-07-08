@@ -22,5 +22,4 @@ data class FavouriteActor(
     override fun toString(): String {
         return "FavouriteActor(id=$id, name='$name')"
     }
-
 }

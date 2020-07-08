@@ -13,15 +13,18 @@ class GenresAdapter(private val genresList: List<Genre>?) : RecyclerView.Adapter
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GenresViewHolder {
         return GenresViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.genres_list_item, parent, false))
     }
+
     override fun getItemCount(): Int {
         return genresList?.size ?: 0
     }
+
     override fun onBindViewHolder(holder: GenresViewHolder, position: Int) {
         val genre: Genre? = genresList?.get(position)
         genre?.let{
             holder.bind(genre)
         }
     }
+
     inner class GenresViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(genre: Genre){
             itemView.tv_genre_name.text= genre.name

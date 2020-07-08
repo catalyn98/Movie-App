@@ -10,7 +10,6 @@ class ActorsLocalDataSource(database: DataBase) {
         fun delete(favoriteActor: FavouriteActor) = actorsDao.delete(favoriteActor)
         fun deleteAll() = actorsDao.deleteAll()
         fun deleteAll(favoriteActors: List<FavouriteActor>) = actorsDao.deleteAll(favoriteActors)
-        fun deleteFavoriteActor(favoriteActor: FavouriteActor) =
-            actorsDao.deleteFavoriteActor(favoriteActor)
+        fun deleteFavoriteActor(favoriteActor: FavouriteActor) = actorsDao.deleteFavoriteActor(favoriteActor)
         fun replaceAll(favoriteActors: List<FavouriteActor>) = actorsDao.replaceAll(favoriteActors)
 }
