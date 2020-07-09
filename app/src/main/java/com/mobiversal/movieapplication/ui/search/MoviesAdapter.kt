@@ -28,7 +28,11 @@ class MoviesAdapter(private val moviesList: List<Movie>?) : RecyclerView.Adapter
     inner class MoviesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(movie: Movie){
             ImageLoader.loadImage("https://image.tmdb.org/t/p/original" + movie.poster_path, itemView.iv_movie, itemView.context)
-            itemView.tv_movie_name_year.text= movie.title
+            itemView.tv_movie_name_year.text = movie.title
+            if (movie.overview.length >= 60)
+                itemView.tv_describe_movie.text = movie.overview.substring(0, 60) + "..."
+            else
+                itemView.tv_describe_movie.text = movie.overview + "..."
             }
         }
 }

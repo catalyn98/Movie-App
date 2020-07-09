@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.actors_list_item.view.cb_selected
 import kotlinx.android.synthetic.main.genres_list_item.view.*
 
 class GenresAdapter(private val genresList: List<Genre>?) : RecyclerView.Adapter<GenresAdapter.GenresViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GenresViewHolder {
         return GenresViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.genres_list_item, parent, false))
     }
@@ -30,9 +31,7 @@ class GenresAdapter(private val genresList: List<Genre>?) : RecyclerView.Adapter
             itemView.tv_genre_name.text= genre.name
             itemView.cb_selected.setOnCheckedChangeListener(null)
             itemView.cb_selected.isChecked = genre.isSelected
-            itemView.cb_selected.setOnCheckedChangeListener { buttonView, isChecked ->
-                genre.isSelected = isChecked
-            }
+            itemView.cb_selected.setOnCheckedChangeListener { buttonView, isChecked -> genre.isSelected = isChecked }
         }
     }
 }

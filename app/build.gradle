@@ -77,11 +77,12 @@ dependencies {
     //kapt genereaza codul
     kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
-    //dependecies for glide
+    //dependencies for glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
-    //dependecies for recycleview
+    //dependencies for recycleview
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0-rc01"
+    //dependencies for PagerAdapter
     implementation 'com.google.android.material:material:1.0.0'
 }

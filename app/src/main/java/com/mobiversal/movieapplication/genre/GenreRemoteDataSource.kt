@@ -7,6 +7,7 @@ import retrofit2.Retrofit
 import java.lang.Exception
 
 class GenreRemoteDataSource(retrofit: Retrofit) {
+
     private val apiService : GenreAPIService = retrofit.create(GenreAPIService::class.java)
     private val genreMapper  = GenreMapper()
 

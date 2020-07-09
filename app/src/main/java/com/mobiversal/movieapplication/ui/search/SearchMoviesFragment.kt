@@ -25,6 +25,7 @@ class SearchMoviesFragment : Fragment() {
             }
         }
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -37,9 +38,9 @@ class SearchMoviesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         getMovies()
     }
+
     private fun setupRecyclerView(movies: List<Movie>) {
         iv_movie.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        iv_movie.adapter =
-            MoviesAdapter(movies)
+        iv_movie.adapter = MoviesAdapter(movies)
     }
 }

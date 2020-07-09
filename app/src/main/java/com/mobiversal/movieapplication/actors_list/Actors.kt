@@ -14,6 +14,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class Actors : AppCompatActivity() {
+
     val list: List<FavouriteActor> = ArrayList()
     private var actors: List<FavouriteActor>? = null
 
@@ -35,7 +36,6 @@ class Actors : AppCompatActivity() {
     }
 
         fun getActors(): List<FavouriteActor>? {
-
         GlobalScope.launch(Dispatchers.IO) {
             actors = ActorsRepository.getAllRemote()
             actors?.let { actors ->

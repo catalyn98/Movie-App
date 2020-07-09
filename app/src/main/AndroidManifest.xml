@@ -16,7 +16,7 @@
 
         <!--activity for MenuHamburger-->
         <activity
-            android:name=".MenuHmaburger"
+            android:name=".MenuHamburger"
             android:label="@string/title_activity_menu_hamburger"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>

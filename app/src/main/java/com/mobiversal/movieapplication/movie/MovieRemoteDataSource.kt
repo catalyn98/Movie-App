@@ -7,6 +7,7 @@ import retrofit2.Retrofit
 import java.lang.Exception
 
 class MovieRemoteDataSource(retrofit: Retrofit) {
+
     private val apiService : MovieAPIService = retrofit.create(MovieAPIService::class.java)
     private val movieMapper  = MovieMapper()
 
@@ -17,7 +18,5 @@ class MovieRemoteDataSource(retrofit: Retrofit) {
             .executeAndDeliver()
             .results
             .map { movieMapper.map(it) }
-
-
     }
 }

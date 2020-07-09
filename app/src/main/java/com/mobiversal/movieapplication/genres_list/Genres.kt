@@ -34,7 +34,7 @@ class Genres : AppCompatActivity() {
         setContentView(R.layout.activity_genres)
         getGenres()
         Log.d(Genres.TAG, genres?.firstOrNull()?.name?: "not found")
-        setupRecycleView()
+          setupRecycleView()
     }
 
     fun getGenres(): List<Genre>? {

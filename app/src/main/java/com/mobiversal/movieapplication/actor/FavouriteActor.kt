@@ -16,7 +16,10 @@ data class FavouriteActor(
 
     @ColumnInfo(name = "name")
     var name: String,
+
     val imgUrl: String,
+
+    @ColumnInfo(name="isSelected")
     var isSelected: Boolean= false //folosim pentru logica noastra locala
 ) {
     override fun toString(): String {

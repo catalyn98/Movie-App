@@ -10,6 +10,7 @@ import com.mobiversal.movieapplication.genre.GenreDao
 
 //se creaza un singletone
 class DataBase private constructor(){
+
     companion object{
         val instance  = DataBase()
     }

@@ -10,6 +10,7 @@ import com.mobiversal.movieapplication.utils.ImageLoader
 import kotlinx.android.synthetic.main.actors_list_item.view.*
 
 class ActorsAdapter(private val actorsList: List<FavouriteActor>?) : RecyclerView.Adapter<ActorsAdapter.ActorsViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActorsViewHolder {
         return ActorsViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.actors_list_item, parent, false))
     }
@@ -32,9 +33,7 @@ class ActorsAdapter(private val actorsList: List<FavouriteActor>?) : RecyclerVie
             itemView.tv_actor_name.text= actor.name
             itemView.cb_selected.setOnCheckedChangeListener(null)
             itemView.cb_selected.isChecked = actor.isSelected
-            itemView.cb_selected.setOnCheckedChangeListener { buttonView, isChecked ->
-                actor.isSelected = isChecked
-            }
+            itemView.cb_selected.setOnCheckedChangeListener { buttonView, isChecked -> actor.isSelected = isChecked }
         }
     }
 }

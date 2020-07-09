@@ -1,14 +1,6 @@
 package com.mobiversal.movieapplication.movie
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import org.jetbrains.annotations.NotNull
-
 data class Movie(
-
-
-
     val id: Int,
 
     val title: String,

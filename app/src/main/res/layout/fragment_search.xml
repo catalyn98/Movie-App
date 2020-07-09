@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.search.SearchFragment">
+    tools:context=".ui.search.SearchMoviesFragment">
+
 <!--
     <TextView
         android:id="@+id/text_home"
@@ -26,6 +27,5 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:listitem="@layout/movie_list_item"
-        />
+        tools:listitem="@layout/movie_list_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>

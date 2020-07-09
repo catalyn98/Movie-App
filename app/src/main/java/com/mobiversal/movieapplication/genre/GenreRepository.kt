@@ -4,6 +4,7 @@ import com.mobiversal.movieapplication.dataBase.DataBase
 import com.mobiversal.movieapplication.network.APIClient
 
 class GenreRepository {
+
     companion object{
         val instance = GenreRepository()
     }

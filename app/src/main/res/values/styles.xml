@@ -8,7 +8,6 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-
     <!-- This style is for the splash screen -->
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
