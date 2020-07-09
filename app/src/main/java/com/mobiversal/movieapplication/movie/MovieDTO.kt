@@ -11,8 +11,8 @@ data class MovieDTO(
     val poster_path: String,
     var release_date: String,
     var overview: String,
-    var isFavorite: Boolean,
-        var isWatched: Boolean) {
+    var isFavorite: Boolean?,
+        var isWatched: Boolean?) {
     override fun toString(): String {
         return "MovieDTO(id=$id, titlu='$title', poster_path='$poster_path', release_date='$release_date', overview='$overview', isFavorite=$isFavorite, isWatched=$isWatched)"
     }

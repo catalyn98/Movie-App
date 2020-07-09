@@ -30,8 +30,12 @@ class SearchMoviesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        getMovies()
         return inflater.inflate(R.layout.fragment_search, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        getMovies()
     }
     private fun setupRecyclerView(movies: List<Movie>) {
         iv_movie.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
