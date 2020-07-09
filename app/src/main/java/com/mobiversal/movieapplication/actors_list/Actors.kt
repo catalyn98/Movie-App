@@ -16,7 +16,6 @@ import kotlinx.coroutines.withContext
 class Actors : AppCompatActivity() {
     val list: List<FavouriteActor> = ArrayList()
     private var actors: List<FavouriteActor>? = null
-    private val adapter = ActorsAdapter(getActors())
 
     companion object {
         val TAG = Actors::class.java.simpleName
@@ -37,15 +36,15 @@ class Actors : AppCompatActivity() {
 
         fun getActors(): List<FavouriteActor>? {
 
-            GlobalScope.launch(Dispatchers.IO) {
-                actors = ActorsRepository.getAllRemote()
-                actors?.let { actors ->
-                    ActorsRepository.replaceAll(actors)
-                    withContext(Dispatchers.Main) {
-                        setupRecycleView()
-                    }
+        GlobalScope.launch(Dispatchers.IO) {
+            actors = ActorsRepository.getAllRemote()
+            actors?.let { actors ->
+                ActorsRepository.replaceAll(actors)
+                withContext(Dispatchers.Main) {
+                    setupRecycleView()
                 }
             }
-            return actors
         }
+        return actors
+    }
     }

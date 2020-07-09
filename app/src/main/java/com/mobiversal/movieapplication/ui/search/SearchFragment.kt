@@ -4,28 +4,38 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobiversal.movieapplication.R
+import com.mobiversal.movieapplication.movie.Movie
+import com.mobiversal.movieapplication.movie.MoviesRepository
+import kotlinx.android.synthetic.main.fragment_search.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-class SearchFragment : Fragment() {
-
-  private lateinit var searchViewModel: SearchViewModel
-
-  override fun onCreateView(
-    inflater: LayoutInflater,
-    container: ViewGroup?,
-    savedInstanceState: Bundle?
-  ): View? {
-    searchViewModel =
-    ViewModelProviders.of(this).get(SearchViewModel::class.java)
-    val root = inflater.inflate(R.layout.fragment_search, container, false)
-    val textView: TextView = root.findViewById(R.id.text_home)
-    searchViewModel.text.observe(viewLifecycleOwner, Observer {
-      textView.text = it
-    })
-    return root
-  }
+class SearchMoviesFragment : Fragment() {
+    private val movieRepository = MoviesRepository.instance
+    fun getMovies() {
+        GlobalScope.launch(Dispatchers.IO) {
+            val movies = movieRepository.getAllRemote()
+            withContext(Dispatchers.Main) {
+                setupRecyclerView(movies)
+            }
+        }
+    }
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        getMovies()
+        return inflater.inflate(R.layout.fragment_search, container, false)
+    }
+    private fun setupRecyclerView(movies: List<Movie>) {
+        iv_movie.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        iv_movie.adapter =
+            MoviesAdapter(movies)
+    }
 }

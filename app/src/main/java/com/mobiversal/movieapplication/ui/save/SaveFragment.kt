@@ -4,28 +4,27 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
 import com.mobiversal.movieapplication.R
 
 class SaveFragment : Fragment() {
-
-  private lateinit var saveViewModel: SaveViewModel
 
   override fun onCreateView(
     inflater: LayoutInflater,
     container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View? {
-    saveViewModel =
-    ViewModelProviders.of(this).get(SaveViewModel::class.java)
-    val root = inflater.inflate(R.layout.fragment_save, container, false)
-    val textView: TextView = root.findViewById(R.id.text_gallery)
-    saveViewModel.text.observe(viewLifecycleOwner, Observer {
-      textView.text = it
-    })
-    return root
+    return inflater.inflate(R.layout.fragment_save, container, false)
+    }
+
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+    val savedMoviesTabLayout : TabLayout = view.findViewById(R.id.tabLayout)
+    val savedMoviesViewPager : ViewPager = view.findViewById(R.id.viewPager)
+    val adapter: SavedMoviesPagerAdapter = SavedMoviesPagerAdapter(view.context, childFragmentManager)
+    savedMoviesViewPager.adapter = adapter
+    savedMoviesTabLayout.setupWithViewPager(savedMoviesViewPager)
   }
-}
+  }

@@ -7,4 +7,7 @@
 
     <string name="Search">Search</string>
     <string name="Save">Save</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="favorite_tab">Favorites</string>
+    <string name="watched_tab">Watched</string>
 </resources>
