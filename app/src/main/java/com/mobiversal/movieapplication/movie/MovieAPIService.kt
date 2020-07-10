@@ -8,7 +8,9 @@ interface MovieAPIService {
     @GET("movie/popular")
     fun getMovies(
         @Query("api_key") apiKey: String,
-        @Query("language") language: String
+        @Query("language") language: String,
+        @Query("with_cast") withCast: String,
+        @Query("with_genres") withGenres: String
     ): Call<MoviesDTO>
 
 }

@@ -10,6 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobiversal.movieapplication.MainActivity
 import com.mobiversal.movieapplication.R
+import com.mobiversal.movieapplication.actor.ActorsRepository
+import com.mobiversal.movieapplication.actor.FavouriteActor
+import com.mobiversal.movieapplication.genre.Genre
+import com.mobiversal.movieapplication.genre.GenreRepository
 import com.mobiversal.movieapplication.genres_list.Genres
 import com.mobiversal.movieapplication.movie.Movie
 import com.mobiversal.movieapplication.movie.MoviesRepository
@@ -20,14 +24,68 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class SearchMoviesFragment : Fragment() {
+
     private val movieRepository = MoviesRepository.instance
+    private val genreRepository = GenreRepository.instance
+    private val actorRepository = ActorsRepository.instance
+
+    private var selectedGenres: List<Genre> = emptyList()
+    private var selectedActors: List<FavouriteActor> = emptyList()
+
+    private var hasActors = false
+    private var hasGenres = false
+
     fun getMovies() {
         GlobalScope.launch(Dispatchers.IO) {
-            val movies = movieRepository.getAllRemote()
-            withContext(Dispatchers.Main) {
-                setupRecyclerView(movies)
+            getSelectedActors()
+            getSelectedGenres()
+        }
+    }
+
+    private fun getSelectedGenres() {
+        GlobalScope.launch(Dispatchers.IO) {
+            selectedGenres = genreRepository.getAll()
+            hasGenres = true
+            checkRequestAndSend()
+        }
+    }
+
+    private fun getSelectedActors() {
+        GlobalScope.launch(Dispatchers.IO) {
+            selectedActors = actorRepository.getAll()
+            hasActors = true
+            checkRequestAndSend()
+        }
+    }
+
+    private fun checkRequestAndSend() {
+        if (hasActors && hasGenres) {
+            GlobalScope.launch(Dispatchers.IO) {
+                val movies = movieRepository.getAllRemote(
+                    convertActorListToString(selectedActors),
+                    convertGenreListToString(selectedGenres)
+                )
+                withContext(Dispatchers.Main) {
+                    setupRecyclerView(movies)
+                }
             }
         }
+    }
+
+    private fun convertGenreListToString(genreList: List<Genre>): String {
+        val selectedGenresIds: MutableList<Int> = mutableListOf()
+        for (genre in genreList) {
+            selectedGenresIds.add(genre.id)
+        }
+        return selectedGenresIds.joinToString("|")
+    }
+
+    private fun convertActorListToString(actorList: List<FavouriteActor>): String {
+        val selectedActorIds: MutableList<Int> = mutableListOf()
+        for (actor in actorList) {
+            selectedActorIds.add(actor.id)
+        }
+        return selectedActorIds.joinToString("|")
     }
 
     override fun onCreateView(

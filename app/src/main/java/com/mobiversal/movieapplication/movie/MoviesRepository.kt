@@ -13,5 +13,5 @@ class MoviesRepository private constructor() {
     )
 
     @Throws(Exception::class)
-    suspend fun getAllRemote() = movieRemoteDataSource.getMovies()
+    suspend fun getAllRemote(withCast: String, withGenres: String) = movieRemoteDataSource.getMovies(withCast, withGenres)
 }

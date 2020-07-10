@@ -12,9 +12,9 @@ class MovieRemoteDataSource(retrofit: Retrofit) {
     private val movieMapper  = MovieMapper()
 
     @Throws(Exception::class)
-    fun getMovies(): List<Movie>{
+    fun getMovies(withCast: String, withGenres: String): List<Movie>{
 
-        return apiService.getMovies(Constants.API_KEY, Constants.LANGUAGE)
+        return apiService.getMovies(Constants.API_KEY, Constants.LANGUAGE, withCast, withGenres)
             .executeAndDeliver()
             .results
             .map { movieMapper.map(it) }
