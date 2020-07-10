@@ -22,6 +22,8 @@ data class FavouriteActor(
     @ColumnInfo(name="isSelected")
     var isSelected: Boolean= false //folosim pentru logica noastra locala
 ) {
+    override fun equals(other: Any?) = (other is FavouriteActor) && id==other.id
+
     override fun toString(): String {
         return "FavouriteActor(id=$id, name='$name')"
     }

@@ -3,7 +3,11 @@ package com.mobiversal.movieapplication.actor
 import com.mobiversal.movieapplication.dataBase.DataBase
 import com.mobiversal.movieapplication.network.APIClient
 
-object ActorsRepository {
+class ActorsRepository {
+
+    companion object{
+        val instance = ActorsRepository()
+    }
 
     private val actorLocalDataSource = ActorsLocalDataSource(
         DataBase.instance

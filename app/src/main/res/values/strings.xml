@@ -4,8 +4,8 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
-    <string name="Search">Search</string>
-    <string name="Save">Save</string>
+    <string name="Search">Search Movies</string>
+    <string name="Save">Saved Movies</string>
     <string name="favorite_tab">Favorites</string>
     <string name="watched_tab">Watched</string>
 </resources>

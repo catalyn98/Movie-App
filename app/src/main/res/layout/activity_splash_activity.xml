@@ -23,7 +23,7 @@
         android:fontFamily="@font/lemon"
         android:gravity="center"
         android:padding="30dp"
-        android:text="Movie Application"
+        android:text="MovieApp"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold" />

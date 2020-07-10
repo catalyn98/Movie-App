@@ -1,9 +1,11 @@
 package com.mobiversal.movieapplication.genres_list
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.mobiversal.movieapplication.MainActivity
 import com.mobiversal.movieapplication.R
 import com.mobiversal.movieapplication.genre.Genre
 import com.mobiversal.movieapplication.genre.GenreRepository
@@ -16,7 +18,7 @@ import kotlinx.coroutines.withContext
 class Genres : AppCompatActivity() {
 
     private val genreRepository = GenreRepository.instance
-    private var genres: List<Genre>? = null
+    private var genres: List<Genre> = emptyList()
     val list: List<Genre> = ArrayList()
 
     companion object {
@@ -33,20 +35,37 @@ class Genres : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_genres)
         getGenres()
-        Log.d(Genres.TAG, genres?.firstOrNull()?.name?: "not found")
-          setupRecycleView()
+        save_genre.setOnClickListener{
+            GlobalScope.launch(Dispatchers.IO){
+                genreRepository.deleteAll()
+                genreRepository.saveAll(getSelectedGenres())
+            }
+            startActivity(Intent(this, MainActivity::class.java))
+        }
     }
 
     fun getGenres(): List<Genre>? {
         GlobalScope.launch(Dispatchers.IO) {
             genres = genreRepository.getAllRemote()
-            genres?.let { genres ->
-                genreRepository.replaceAll(genres)
+            genres.let { genres ->
                 withContext(Dispatchers.Main) {
+                    Log.d(Genres.TAG, genres.firstOrNull()?.name?:"not found")
+                    insertPreselectedItems ()
                     setupRecycleView()
                 }
             }
         }
         return genres
+    }
+
+    fun getSelectedGenres(): List<Genre> {
+        return genres.filter { genre -> genre.isSelected }
+    }
+
+    fun insertPreselectedItems () {
+        GlobalScope.launch(Dispatchers.IO) {
+            val savedGenre: List<Genre> = genreRepository.getAll()
+            genres.forEach { genre -> genre.isSelected = savedGenre.contains(genre) }
+        }
     }
 }

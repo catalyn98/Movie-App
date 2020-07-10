@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-         val saveButton : Button = findViewById(R.id.Save)
+         val saveButton : Button = findViewById(R.id.save)
          saveButton.setOnClickListener {
              val intent = Intent(this, MenuHamburger::class.java)
              startActivity(intent)

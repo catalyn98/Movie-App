@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/Save"
+        android:id="@+id/save_genre"
         android:layout_width="92dp"
         android:layout_height="50dp"
         android:background="@drawable/round_corner"
