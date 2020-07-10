@@ -1,7 +1,9 @@
 package com.mobiversal.movieapplication
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
+import android.view.View
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -13,6 +15,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MenuHamburger : AppCompatActivity() {
 
@@ -38,6 +41,16 @@ class MenuHamburger : AppCompatActivity() {
             R.id.nav_search, R.id.nav_save, R.id.nav_save), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.bringToFront()
+        navController.addOnDestinationChangedListener{controller, destination, arguments ->
+        if(destination.id == R.id.nav_save){
+            Log.d("ceva", "test frag")
+            searchView?.visibility = View.GONE
+        } else {
+            searchView?.visibility = View.VISIBLE
+        }        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
