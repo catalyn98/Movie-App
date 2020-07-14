@@ -6,4 +6,9 @@ interface SearchMovieInteractionListener {
 
     fun addToFavorite(movie: Movie)
 
+    fun removeFromFavorite(movie: Movie)
+
+    fun addWatched(movie: Movie)
+
+    fun removeWatched(movie: Movie)
 }

@@ -51,6 +51,10 @@ class MoviesAdapter(
             itemView.button_add_favorite.setOnClickListener {
                 searchMovieInteractionListener.addToFavorite(movie)
             }
+
+            itemView.button_add_watched.setOnClickListener {
+                searchMovieInteractionListener.addWatched(movie)
+            }
         }
     }
 }

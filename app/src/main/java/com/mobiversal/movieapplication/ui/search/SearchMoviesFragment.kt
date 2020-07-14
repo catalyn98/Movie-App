@@ -127,8 +127,21 @@ class SearchMoviesFragment : Fragment(), SearchMovieInteractionListener {
     }
 
     override fun addToFavorite(movie: Movie) {
-        GlobalScope.launch {
-            //movieRepository.
-        }
+            GlobalScope.launch {
+                TODO("Not yet implemented")
+            }
     }
+
+    override fun removeFromFavorite(movie: Movie) {
+        TODO("Not yet implemented")
+    }
+
+    override fun addWatched(movie: Movie) {
+        TODO("Not yet implemented")
+    }
+
+    override fun removeWatched(movie: Movie) {
+        TODO("Not yet implemented")
+    }
+
 }
