@@ -7,6 +7,8 @@ import com.mobiversal.movieapplication.actor.ActorsDao
 import com.mobiversal.movieapplication.actor.FavouriteActor
 import com.mobiversal.movieapplication.genre.Genre
 import com.mobiversal.movieapplication.genre.GenreDao
+import com.mobiversal.movieapplication.movie.Movie
+import com.mobiversal.movieapplication.movie.MovieDAO
 
 //se creaza un singletone
 class DataBase private constructor(){
@@ -16,7 +18,7 @@ class DataBase private constructor(){
     }
 
     @androidx.room.Database(
-        entities = [FavouriteActor::class, Genre::class],
+        entities = [FavouriteActor::class, Genre::class, Movie::class],
         version = 1
 
     )
@@ -24,6 +26,7 @@ class DataBase private constructor(){
     abstract class MovieAppDatabase : RoomDatabase(){
         abstract fun actorsDao(): ActorsDao
         abstract fun genresDao(): GenreDao
+        abstract fun moviesDao(): MovieDAO
     }
 
     lateinit var movieAppDatabase: MovieAppDatabase
