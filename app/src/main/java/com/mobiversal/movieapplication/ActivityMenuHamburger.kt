@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.View
 import android.widget.Button
+import android.widget.SearchView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -17,9 +18,12 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.Fragment
+import com.mobiversal.movieapplication.ui.save.SaveFragment
+import com.mobiversal.movieapplication.ui.search.SearchMoviesFragment
 import kotlinx.android.synthetic.main.app_bar_main.*
 
-class MenuHamburger : AppCompatActivity() {
+class ActivityMenuHamburger : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -53,6 +57,35 @@ class MenuHamburger : AppCompatActivity() {
         } else {
             searchView?.visibility = View.VISIBLE
         }        }
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextChange(p0: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+//                val currentFragment = getForegroundFragment()
+//                if (currentFragment != null) {
+//                    if (currentFragment is SearchMoviesFragment) {
+//                        currentFragment.search("something")
+//                    }
+//                }
+
+                getForegroundFragment()?.let { currentFragment ->
+                    if (currentFragment is SearchMoviesFragment) {
+                        currentFragment.search(searchView.query.toString())
+                    }
+                }
+
+                return false
+            }
+        })
+
+    }
+
+    fun getForegroundFragment(): Fragment? {
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
+        return navHostFragment?.childFragmentManager?.fragments?.get(0)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

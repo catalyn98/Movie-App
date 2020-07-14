@@ -10,7 +10,7 @@ data class MovieDTO(
     val title: String,
 
     @Json(name="poster_path")
-    val poster_path: String,
+    val poster_path: String?,
 
     var release_date: String,
 

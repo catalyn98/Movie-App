@@ -14,9 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
 
-        <!--activity for MenuHamburger-->
+        <!--activity for ActivityMenuHamburger-->
         <activity
-            android:name=".MenuHamburger"
+            android:name=".ActivityMenuHamburger"
             android:label="@string/title_activity_menu_hamburger"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>

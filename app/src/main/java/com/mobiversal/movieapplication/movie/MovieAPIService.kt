@@ -13,4 +13,10 @@ interface MovieAPIService {
         @Query("with_genres") withGenres: String
     ): Call<MoviesDTO>
 
+    @GET("search/movie")
+    fun searchMovies(
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String,
+        @Query("query") query: String
+    ): Call<MoviesDTO>
 }

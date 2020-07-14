@@ -19,4 +19,13 @@ class MovieRemoteDataSource(retrofit: Retrofit) {
             .results
             .map { movieMapper.map(it) }
     }
+
+    @Throws(Exception::class)
+    fun searchMovies(query: String): List<Movie>{
+
+        return apiService.searchMovies(Constants.API_KEY, Constants.LANGUAGE, query)
+            .executeAndDeliver()
+            .results
+            .map { movieMapper.map(it) }
+    }
 }

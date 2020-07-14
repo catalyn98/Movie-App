@@ -43,7 +43,7 @@ class SplashActivity : AppCompatActivity() {
         if(hasActor&&hasGenre){
             GlobalScope.launch (Dispatchers.IO){
                 if(selectedActors.isNotEmpty() || selectedGenres.isNotEmpty())
-                startActivity(Intent(this@SplashActivity , MenuHamburger::class.java))
+                startActivity(Intent(this@SplashActivity , ActivityMenuHamburger::class.java))
                 else
                 startActivity(Intent(this@SplashActivity , MainActivity::class.java))
             }

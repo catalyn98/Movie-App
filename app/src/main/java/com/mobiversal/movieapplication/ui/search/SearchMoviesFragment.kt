@@ -2,6 +2,7 @@ package com.mobiversal.movieapplication.ui.search
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +15,6 @@ import com.mobiversal.movieapplication.actor.ActorsRepository
 import com.mobiversal.movieapplication.actor.FavouriteActor
 import com.mobiversal.movieapplication.genre.Genre
 import com.mobiversal.movieapplication.genre.GenreRepository
-import com.mobiversal.movieapplication.genres_list.Genres
 import com.mobiversal.movieapplication.movie.Movie
 import com.mobiversal.movieapplication.movie.MoviesRepository
 import kotlinx.android.synthetic.main.fragment_search.*
@@ -23,7 +23,11 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class SearchMoviesFragment : Fragment() {
+class SearchMoviesFragment : Fragment(), SearchMovieInteractionListener {
+
+    companion object {
+        private val TAG = SearchMoviesFragment::class.java.simpleName
+    }
 
     private val movieRepository = MoviesRepository.instance
     private val genreRepository = GenreRepository.instance
@@ -72,6 +76,17 @@ class SearchMoviesFragment : Fragment() {
         }
     }
 
+    fun search(query: String) {
+        Log.d(TAG, "Search query is: $query")
+
+        GlobalScope.launch(Dispatchers.IO) {
+            val movies = movieRepository.searchMovies(query)
+            withContext(Dispatchers.Main) {
+                setupRecyclerView(movies)
+            }
+        }
+    }
+
     private fun convertGenreListToString(genreList: List<Genre>): String {
         val selectedGenresIds: MutableList<Int> = mutableListOf()
         for (genre in genreList) {
@@ -99,7 +114,7 @@ class SearchMoviesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getMovies()
-        val preferencesButton : Button = view.findViewById(R.id.button_preferences_from_movie_list)
+        val preferencesButton: Button = view.findViewById(R.id.button_preferences_from_movie_list)
         preferencesButton.setOnClickListener {
             val intent = Intent(activity, MainActivity::class.java)
             startActivity(intent)
@@ -108,6 +123,12 @@ class SearchMoviesFragment : Fragment() {
 
     private fun setupRecyclerView(movies: List<Movie>) {
         iv_movie.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        iv_movie.adapter = MoviesAdapter(movies)
+        iv_movie.adapter = MoviesAdapter(movies, this)
+    }
+
+    override fun addToFavorite(movie: Movie) {
+        GlobalScope.launch {
+            //movieRepository.
+        }
     }
 }
