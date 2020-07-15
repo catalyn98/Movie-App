@@ -43,18 +43,31 @@ class MoviesAdapter(
             }
 
             itemView.tv_movie_name_year.text = movie.title + " " + "(" + movie.release_date + ")"
-            if (movie.overview.length >= 80)
-                itemView.tv_describe_movie.text = movie.overview.substring(0, 80) + "..."
+            if (movie.overview.length >= 70)
+                itemView.tv_describe_movie.text = movie.overview.substring(0, 70) + "..."
             else
                 itemView.tv_describe_movie.text = movie.overview + "..."
 
             itemView.button_add_favorite.setOnClickListener {
-                searchMovieInteractionListener.addToFavorite(movie)
+                movie.isFavorite = !(movie.isFavorite ?: false)
+                    searchMovieInteractionListener.updateMovie(movie)
             }
 
             itemView.button_add_watched.setOnClickListener {
-                searchMovieInteractionListener.addWatched(movie)
+                movie.isWatched = !(movie.isWatched ?: false)
+                searchMovieInteractionListener.updateMovie(movie)
             }
+
+            if (movie.isFavorite == true)
+                itemView.button_add_favorite.text = "Remove favorite"
+            else
+                if (movie.isFavorite == false)
+                    itemView.button_add_favorite.text = "Add favorite"
+
+            if (movie.isWatched == true)
+                itemView.button_add_watched.text = "Remove watched"
+            else
+                itemView.button_add_watched.text = "Add watched"
         }
     }
 }

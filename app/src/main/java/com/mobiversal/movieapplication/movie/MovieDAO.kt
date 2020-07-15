@@ -1,13 +1,12 @@
 package com.mobiversal.movieapplication.movie
 
 import androidx.room.*
-import com.mobiversal.movieapplication.actor.FavouriteActor
 
 @Dao
 interface MovieDAO {
     @Query("SELECT * FROM movies")
     fun getAll(): List<Movie>
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun save(movie: Movie)
     @Insert
     fun saveAll(movie: List<Movie>)

@@ -39,6 +39,8 @@ class SearchMoviesFragment : Fragment(), SearchMovieInteractionListener {
     private var hasActors = false
     private var hasGenres = false
 
+    private var adapter: MoviesAdapter?= null
+
     fun getMovies() {
         GlobalScope.launch(Dispatchers.IO) {
             getSelectedActors()
@@ -123,23 +125,16 @@ class SearchMoviesFragment : Fragment(), SearchMovieInteractionListener {
 
     private fun setupRecyclerView(movies: List<Movie>) {
         iv_movie.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        iv_movie.adapter = MoviesAdapter(movies, this)
+        this.adapter = MoviesAdapter(movies, this)
+        iv_movie.adapter = adapter
     }
 
-    override fun addToFavorite(movie: Movie) {
-                TODO("Not yet implemented")
+    override fun updateMovie(movie: Movie) {
+        GlobalScope.launch{
+            movieRepository.save(movie)
+            withContext(Dispatchers.Main){
+                adapter?.notifyDataSetChanged()
+            }
+        }
     }
-
-    override fun removeFromFavorite(movie: Movie) {
-        TODO("Not yet implemented")
-    }
-
-    override fun addWatched(movie: Movie) {
-        TODO("Not yet implemented")
-    }
-
-    override fun removeWatched(movie: Movie) {
-        TODO("Not yet implemented")
-    }
-
 }
