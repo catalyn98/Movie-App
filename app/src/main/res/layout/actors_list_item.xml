@@ -11,8 +11,7 @@
         android:id="@+id/iv_actor"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        tools:background="@color/colorPrimary"
-        />
+        tools:background="@color/colorPrimary" />
 
     <TextView
         android:id="@+id/tv_actor_name"

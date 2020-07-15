@@ -124,9 +124,9 @@ class SearchMoviesFragment : Fragment(), SearchMovieInteractionListener {
     }
 
     private fun setupRecyclerView(movies: List<Movie>) {
-        iv_movie.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        iv_movie_saved.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         this.adapter = MoviesAdapter(movies, this)
-        iv_movie.adapter = adapter
+        iv_movie_saved.adapter = adapter
     }
 
     override fun updateMovie(movie: Movie) {

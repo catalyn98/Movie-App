@@ -6,6 +6,10 @@ import androidx.room.*
 interface MovieDAO {
     @Query("SELECT * FROM movies")
     fun getAll(): List<Movie>
+    @Query("SELECT * FROM movies WHERE isFavorite = 1")
+    fun getFavoritesMovies() : List<Movie>
+    @Query("SELECT * FROM movies WHERE isWatched = 1")
+    fun getWatchedMovies() : List<Movie>
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun save(movie: Movie)
     @Insert

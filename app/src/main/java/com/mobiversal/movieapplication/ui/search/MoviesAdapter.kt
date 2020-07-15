@@ -37,7 +37,7 @@ class MoviesAdapter(
             if (!posterPath.isNullOrEmpty()) {
                 ImageLoader.loadImage(
                     "https://image.tmdb.org/t/p/original" + posterPath,
-                    itemView.iv_movie,
+                    itemView.iv_movie_saved,
                     itemView.context
                 )
             }
@@ -61,8 +61,7 @@ class MoviesAdapter(
             if (movie.isFavorite == true)
                 itemView.button_add_favorite.text = "Remove favorite"
             else
-                if (movie.isFavorite == false)
-                    itemView.button_add_favorite.text = "Add favorite"
+                itemView.button_add_favorite.text = "Add favorite"
 
             if (movie.isWatched == true)
                 itemView.button_add_watched.text = "Remove watched"

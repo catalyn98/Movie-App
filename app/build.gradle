@@ -80,7 +80,7 @@ dependencies {
     //dependencies for glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
-    //dependencies for recycleview
+    //dependencies for recyclerview
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0-rc01"
     //dependencies for PagerAdapter

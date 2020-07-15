@@ -1,9 +1,7 @@
 package com.mobiversal.movieapplication.movie
 
-import com.mobiversal.movieapplication.actor.ActorsLocalDataSource
 import com.mobiversal.movieapplication.dataBase.DataBase
 import com.mobiversal.movieapplication.network.APIClient
-import retrofit2.http.Query
 
 class MoviesRepository private constructor() {
 
@@ -20,6 +18,8 @@ class MoviesRepository private constructor() {
     )
 
     fun getAll() = movieLocalDataSource.getAll()
+    fun getFavoritesMovies() = movieLocalDataSource.getFavoritesMovies()
+    fun getWatchedMovies() = movieLocalDataSource.getWatchedMovies()
     fun save(favoriteMovie: Movie) = movieLocalDataSource.save(favoriteMovie)
     fun saveAll(favoriteMovie: List<Movie>) = movieLocalDataSource.saveAll(favoriteMovie)
     fun delete(favoriteMovie: Movie) = movieLocalDataSource.delete(favoriteMovie)

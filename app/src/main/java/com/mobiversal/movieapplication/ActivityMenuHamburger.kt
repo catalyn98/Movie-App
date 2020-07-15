@@ -1,11 +1,9 @@
 package com.mobiversal.movieapplication
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.View
-import android.widget.Button
 import android.widget.SearchView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -19,7 +17,6 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import com.mobiversal.movieapplication.ui.save.SaveFragment
 import com.mobiversal.movieapplication.ui.search.SearchMoviesFragment
 import kotlinx.android.synthetic.main.app_bar_main.*
 
