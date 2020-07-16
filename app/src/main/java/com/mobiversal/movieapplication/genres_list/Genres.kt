@@ -18,8 +18,8 @@ import kotlinx.coroutines.withContext
 class Genres : AppCompatActivity() {
 
     private val genreRepository = GenreRepository.instance
-    private var genres: List<Genre> = emptyList()
     val list: List<Genre> = ArrayList()
+    private var genres: List<Genre> = emptyList()
 
     companion object {
         val TAG = Genres::class.java.simpleName

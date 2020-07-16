@@ -16,8 +16,6 @@ interface ActorDAO {
     fun deleteAll()
     @Delete
     fun deleteAll(actor: List<Actor>)
-    @Delete
-    fun deleteFavoriteActor(actor: Actor)
     @Transaction
     fun replaceAll(actor: List<Actor>) {
         deleteAll()

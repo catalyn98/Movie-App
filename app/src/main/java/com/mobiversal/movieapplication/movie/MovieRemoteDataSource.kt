@@ -1,6 +1,5 @@
 package com.mobiversal.movieapplication.movie
 
-import android.util.Log
 import com.mobiversal.movieapplication.network.Constants
 import com.mobiversal.movieapplication.network.executeAndDeliver
 import retrofit2.Retrofit
@@ -13,7 +12,6 @@ class MovieRemoteDataSource(retrofit: Retrofit) {
 
     @Throws(Exception::class)
     fun getMovies(withCast: String, withGenres: String): List<Movie>{
-
         return apiService.getMovies(Constants.API_KEY, Constants.LANGUAGE, withCast, withGenres)
             .executeAndDeliver()
             .results
@@ -22,7 +20,6 @@ class MovieRemoteDataSource(retrofit: Retrofit) {
 
     @Throws(Exception::class)
     fun searchMovies(query: String): List<Movie>{
-
         return apiService.searchMovies(Constants.API_KEY, Constants.LANGUAGE, query)
             .executeAndDeliver()
             .results
@@ -36,7 +33,6 @@ class MovieRemoteDataSource(retrofit: Retrofit) {
             "videos"
         )
             .executeAndDeliver()
-
             return movieMapper.map(dto)
     }
 }

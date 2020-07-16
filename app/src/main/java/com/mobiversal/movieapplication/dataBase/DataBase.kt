@@ -10,7 +10,6 @@ import com.mobiversal.movieapplication.genre.GenreDao
 import com.mobiversal.movieapplication.movie.Movie
 import com.mobiversal.movieapplication.movie.MovieDAO
 
-//se creaza un singletone
 class DataBase private constructor(){
 
     companion object{

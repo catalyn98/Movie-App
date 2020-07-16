@@ -27,8 +27,6 @@ data class Movie(
     var isFavorite: Boolean?,
     @ColumnInfo(name = "isWatched")
     var isWatched: Boolean?
-
-
 ){
     @Ignore
     var genres:List<Genre> = emptyList()

@@ -38,8 +38,6 @@ class ActivityMenuHamburger : AppCompatActivity() {
         val drawerLayout: DrawerLayout = findViewById(R.id.activity_menu_hamburger)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
             R.id.nav_search, R.id.nav_save, R.id.nav_save), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -61,19 +59,11 @@ class ActivityMenuHamburger : AppCompatActivity() {
             }
 
             override fun onQueryTextSubmit(p0: String?): Boolean {
-//                val currentFragment = getForegroundFragment()
-//                if (currentFragment != null) {
-//                    if (currentFragment is SearchMoviesFragment) {
-//                        currentFragment.search("something")
-//                    }
-//                }
-
                 getForegroundFragment()?.let { currentFragment ->
                     if (currentFragment is SearchMoviesFragment) {
                         currentFragment.search(searchView.query.toString())
                     }
                 }
-
                 return false
             }
         })

@@ -9,7 +9,6 @@ import com.mobiversal.movieapplication.MainActivity
 import com.mobiversal.movieapplication.R
 import com.mobiversal.movieapplication.actor.ActorsRepository
 import com.mobiversal.movieapplication.actor.FavouriteActor
-import com.mobiversal.movieapplication.genre.Genre
 import kotlinx.android.synthetic.main.activity_actors.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -19,8 +18,8 @@ import kotlinx.coroutines.withContext
 class Actors : AppCompatActivity() {
 
     private val actorRepository = ActorsRepository.instance
-    private var actors: List<FavouriteActor> = emptyList()
     val list: List<FavouriteActor> = ArrayList()
+    private var actors: List<FavouriteActor> = emptyList()
 
     companion object {
         val TAG = Actors::class.java.simpleName

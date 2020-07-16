@@ -2,7 +2,7 @@ package com.mobiversal.movieapplication.genre
 
 import androidx.room.*
 
-@Dao //interfata este de tip DAO
+@Dao
 interface GenreDao {
     @Query("SELECT * FROM genres")
     fun getAll(): List<Genre>

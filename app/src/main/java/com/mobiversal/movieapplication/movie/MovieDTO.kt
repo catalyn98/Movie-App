@@ -1,7 +1,6 @@
 package com.mobiversal.movieapplication.movie
 
 import com.mobiversal.movieapplication.genre.GenreDTO
-import com.mobiversal.movieapplication.movie.video.VideoDTO
 import com.mobiversal.movieapplication.movie.video.VideosDTO
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

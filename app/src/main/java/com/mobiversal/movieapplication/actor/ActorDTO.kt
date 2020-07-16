@@ -9,7 +9,7 @@ data class ActorDTO (
     val name: String,
     @Json(name="profile_path")
     val imgUrl: String,
-    var isSelected: Boolean= false //folosim pentru logica noastra locala
+    var isSelected: Boolean= false
 ){
     override fun toString(): String {
         return "ActorsDTO(id=$id, name='$name')"

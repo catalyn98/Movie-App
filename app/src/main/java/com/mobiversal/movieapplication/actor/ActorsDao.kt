@@ -2,7 +2,7 @@ package com.mobiversal.movieapplication.actor
 
 import androidx.room.*
 
-@Dao //interfata este de tip DAO
+@Dao
 interface ActorsDao {
     @Query("SELECT * FROM favorite_actors")
     fun getAll(): List<FavouriteActor>

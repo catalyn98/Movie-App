@@ -16,10 +16,8 @@ class SplashActivity : AppCompatActivity() {
 
     private var genreRepository = GenreRepository.instance
     private var actorRepository = ActorsRepository.instance
-
     private var hasActor = false
     private var hasGenre = false
-
     private var selectedGenres: List<Genre> = emptyList()
     private var selectedActors: List<FavouriteActor> = emptyList()
 
@@ -50,12 +48,11 @@ class SplashActivity : AppCompatActivity() {
         }
     }
 
-
     // This is the loading time of the splash screen
     private val SPLASH_TIME_OUT:Long = 3000
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash_activity)
+        setContentView(R.layout.activity_splash)
 
         Handler().postDelayed({
             // This method will be executed once the timer is over

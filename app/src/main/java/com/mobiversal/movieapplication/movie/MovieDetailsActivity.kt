@@ -2,9 +2,7 @@ package com.mobiversal.movieapplication.movie
 
 import android.os.Bundle
 import android.util.Log
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.mobiversal.movieapplication.R
 import com.mobiversal.movieapplication.movie.video.Video
@@ -14,7 +12,6 @@ import com.mobiversal.movieapplication.utils.ImageLoader
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import kotlinx.android.synthetic.main.activity_movie_details.*
-import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -25,6 +22,7 @@ class MovieDetailsActivity : AppCompatActivity() {
     companion object {
         private val TAG = MovieDetailsActivity::class.java.simpleName
     }
+
     private val moviesRepository: MoviesRepository = MoviesRepository.instance
     private var movie: Movie? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,6 +53,7 @@ class MovieDetailsActivity : AppCompatActivity() {
         handleButtons()
         fetchLocalMovie(movie)
     }
+
     private fun fetchLocalMovie(movie: Movie) {
         GlobalScope.launch {
             val savedMovie: Movie? = moviesRepository.getAll().find { it.id == movie.id }
@@ -64,6 +63,7 @@ class MovieDetailsActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun setYoutubeLink(movie: Movie) {
         lifecycle.addObserver(video_player_details)
         val video: Video? = movie.videos.find { it.site == "YouTube" }
@@ -75,6 +75,7 @@ class MovieDetailsActivity : AppCompatActivity() {
             })
         }
     }
+
     private fun handleButtons() {
         button_add_favorite.setOnClickListener {
             movie?.let { movie ->
@@ -89,10 +90,12 @@ class MovieDetailsActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun updateButtonsText(movie: Movie) {
         button_add_favorite.text = if (movie.isFavorite == true) "REMOVE FAVORITE" else "ADD TO FAVORITE"
         button_add_watched.text = if (movie.isWatched == true) "REMOVE WATCHED" else "ADD TO WATCHED"
     }
+
     private fun updateMovie(movie: Movie) {
         GlobalScope.launch {
             moviesRepository.save(movie)
@@ -101,12 +104,14 @@ class MovieDetailsActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun populateMovieDetails(movie: Movie) {
         title_details.text = movie.title
         date_details.text = movie.release_date
         genre_details.text = movie.genres.map { it.name }.joinToString(", ")
         description_details.text = movie.overview
     }
+
     private fun populatePoster(movie: Movie) {
         val hasPoster: Boolean = movie.poster_path?.isNotBlank() ?: false
         if (hasPoster) {

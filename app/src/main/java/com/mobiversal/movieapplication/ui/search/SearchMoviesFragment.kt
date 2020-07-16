@@ -32,15 +32,11 @@ class SearchMoviesFragment : Fragment(), SearchMovieInteractionListener {
     private val movieRepository = MoviesRepository.instance
     private val genreRepository = GenreRepository.instance
     private val actorRepository = ActorsRepository.instance
-
     private var selectedGenres: List<Genre> = emptyList()
     private var selectedActors: List<FavouriteActor> = emptyList()
-
     private var hasActors = false
     private var hasGenres = false
-
     private var adapter: MoviesAdapter?= null
-
     private var searchQuery: String? = null
 
     fun getMovies() {

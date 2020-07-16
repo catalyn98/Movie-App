@@ -43,6 +43,7 @@
             </intent-filter>
         </activity>
 
+        <!--activity for MovieDetailsActivity-->
         <activity android:name=".movie.MovieDetailsActivity">
 
         </activity>

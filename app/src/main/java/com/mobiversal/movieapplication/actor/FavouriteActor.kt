@@ -20,7 +20,7 @@ data class FavouriteActor(
     val imgUrl: String,
 
     @ColumnInfo(name="isSelected")
-    var isSelected: Boolean= false //folosim pentru logica noastra locala
+    var isSelected: Boolean= false
 ) {
     override fun equals(other: Any?) = (other is FavouriteActor) && id==other.id
 

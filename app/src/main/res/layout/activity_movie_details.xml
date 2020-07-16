@@ -17,8 +17,8 @@
             android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/poster_details"
-                android:layout_width="250dp"
-                android:layout_height="350dp"
+                android:layout_width="350dp"
+                android:layout_height="450dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="25dp"
                 />
@@ -26,13 +26,17 @@
                 android:id="@+id/title_details"
                 android:layout_width="wrap_content"
                 tools:text="Title"
-                android:textSize="30sp"
-                android:textColor="@color/white"
+                android:textSize="35sp"
+                android:fontFamily="@font/coiny"
+                android:textColor="#FF0000"
+                android:padding="10dp"
                 android:layout_height="wrap_content"/>
             <TextView
                 android:id="@+id/date_details"
                 tools:text="Release date"
-                android:textSize="20dp"
+                android:textSize="24dp"
+                android:padding="10dp"
+                android:fontFamily="@font/coiny"
                 android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -41,22 +45,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Genres"
-                android:textSize="19dp"
-                android:textColor="@color/white"/>
+                android:textSize="24dp"
+                android:padding="10dp"
+                android:fontFamily="@font/coiny"
+                android:textColor="#FF0000"/>
 
             <TextView
                 android:id="@+id/description_details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="17dp"
+                android:textSize="20dp"
+                android:padding="10dp"
+                android:fontFamily="@font/coiny"
                 tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
 
             <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
                 android:id="@+id/video_player_details"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:layout_marginTop="8dp" />
+                android:layout_height="210dp"
+                android:padding="10dp"
+                android:layout_marginTop="17dp" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
