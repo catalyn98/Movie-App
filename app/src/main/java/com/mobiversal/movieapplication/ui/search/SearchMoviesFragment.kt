@@ -41,6 +41,8 @@ class SearchMoviesFragment : Fragment(), SearchMovieInteractionListener {
 
     private var adapter: MoviesAdapter?= null
 
+    private var searchQuery: String? = null
+
     fun getMovies() {
         GlobalScope.launch(Dispatchers.IO) {
             getSelectedActors()
@@ -115,7 +117,7 @@ class SearchMoviesFragment : Fragment(), SearchMovieInteractionListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getMovies()
+
         val preferencesButton: Button = view.findViewById(R.id.button_preferences_from_movie_list)
         preferencesButton.setOnClickListener {
             val intent = Intent(activity, MainActivity::class.java)
@@ -147,6 +149,15 @@ class SearchMoviesFragment : Fragment(), SearchMovieInteractionListener {
             withContext(Dispatchers.Main) {
                 setupRecyclerView(newMoviesList)
             }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (searchQuery.isNullOrBlank()) {
+            getMovies()
+        } else {
+            search(searchQuery!!)
         }
     }
 
