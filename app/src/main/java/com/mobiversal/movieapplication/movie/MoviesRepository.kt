@@ -27,6 +27,7 @@ class MoviesRepository private constructor() {
     fun deleteAll(favoriteMovie: List<Movie>) = movieLocalDataSource.deleteAll(favoriteMovie)
     fun deleteFavoriteMovie(favoriteMovie: Movie) = movieLocalDataSource.deleteFavoriteMovie(favoriteMovie)
     fun replaceAll(favoriteMovie: List<Movie>) = movieLocalDataSource.replaceAll(favoriteMovie)
+    fun getMoviesDetails(movieID: Int) = movieRemoteDataSource.getMoviesDetails(movieID)
 
     @Throws(Exception::class)
     suspend fun getAllRemote(withCast: String, withGenres: String) = movieRemoteDataSource.getMovies(withCast, withGenres)

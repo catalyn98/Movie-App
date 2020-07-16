@@ -28,4 +28,15 @@ class MovieRemoteDataSource(retrofit: Retrofit) {
             .results
             .map { movieMapper.map(it) }
     }
+
+    fun getMoviesDetails(movieID: Int) : Movie{
+        val dto =  apiService.getMoviesDetails(
+            movieID,
+            Constants.API_KEY,
+            "videos"
+        )
+            .executeAndDeliver()
+
+            return movieMapper.map(dto)
+    }
 }
