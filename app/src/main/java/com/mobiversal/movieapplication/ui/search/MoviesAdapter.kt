@@ -1,11 +1,16 @@
 package com.mobiversal.movieapplication.ui.search
 
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mobiversal.movieapplication.R
 import com.mobiversal.movieapplication.movie.Movie
+import com.mobiversal.movieapplication.movie.MovieDetailsActivity
+import com.mobiversal.movieapplication.network.Constants.KEY_MOVIE_ID
 import com.mobiversal.movieapplication.utils.ImageLoader
 import kotlinx.android.synthetic.main.movie_list_item.view.*
 
@@ -67,6 +72,18 @@ class MoviesAdapter(
                 itemView.button_add_watched.text = "Remove watched"
             else
                 itemView.button_add_watched.text = "Add watched"
+
+            itemView.rootView.setOnClickListener {
+                openMoviesDetailsActivity(movie, itemView.context)
+            }
         }
+    }
+
+    private fun openMoviesDetailsActivity(movie: Movie, context: Context){
+        val intent = Intent(context, MovieDetailsActivity::class.java)
+        val bundle = Bundle()
+        bundle.putInt(KEY_MOVIE_ID, movie.id)
+        intent.putExtras(bundle)
+        context.startActivity(intent)
     }
 }
