@@ -72,7 +72,7 @@ class SearchMoviesFragment : Fragment(), SearchMovieInteractionListener {
                     convertGenreListToString(selectedGenres)
                 )
                 withContext(Dispatchers.Main) {
-                    setupRecyclerView(movies)
+                    onRemoteMoviesReady(movies)
                 }
             }
         }
@@ -84,7 +84,7 @@ class SearchMoviesFragment : Fragment(), SearchMovieInteractionListener {
         GlobalScope.launch(Dispatchers.IO) {
             val movies = movieRepository.searchMovies(query)
             withContext(Dispatchers.Main) {
-                setupRecyclerView(movies)
+                onRemoteMoviesReady(movies)
             }
         }
     }
@@ -120,6 +120,33 @@ class SearchMoviesFragment : Fragment(), SearchMovieInteractionListener {
         preferencesButton.setOnClickListener {
             val intent = Intent(activity, MainActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    // Called once we get the movies from the remote repository
+    private fun onRemoteMoviesReady(movies: List<Movie>) {
+        // Get all movies locally
+        GlobalScope.launch {
+            val savedMovies = movieRepository.getAll()
+            // Map the movies from the remote repository to the new list
+            val newMoviesList = movies.map {  movie ->
+                /*
+                 * Create the new isFavorite and isWatched flags by the saved entities
+                 */
+                val isFavorite = savedMovies.find { it.id == movie.id && (it.isFavorite ?: false) } != null
+                val isWatched = savedMovies.find { it.id == movie.id && (it.isWatched ?: false) } != null
+
+                // Create the new movie entity
+                movie.copy(
+                    isFavorite = isFavorite,
+                    isWatched = isWatched
+                )
+            }
+
+            // Once we mapped all the remote response, create the recycler view
+            withContext(Dispatchers.Main) {
+                setupRecyclerView(newMoviesList)
+            }
         }
     }
 
