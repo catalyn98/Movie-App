@@ -1,9 +1,9 @@
 package com.mobiversal.movieapplication.movie
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.mobiversal.movieapplication.R
 import com.mobiversal.movieapplication.network.Constants.KEY_MOVIE_ID
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -20,6 +20,11 @@ class MovieDetailsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+        setContentView(R.layout.activity_movie_details)
+
+
         intent?.extras?.let {bundle ->
             val movieID = bundle.getInt(KEY_MOVIE_ID, -1)
 

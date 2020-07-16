@@ -85,4 +85,6 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0-rc01"
     //dependencies for PagerAdapter
     implementation 'com.google.android.material:material:1.0.0'
+    //dependencies for YouTube player
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
 }
