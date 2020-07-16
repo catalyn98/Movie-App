@@ -2,7 +2,10 @@ package com.mobiversal.movieapplication.movie
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import com.mobiversal.movieapplication.genre.Genre
+import com.mobiversal.movieapplication.movie.video.Video
 import org.jetbrains.annotations.NotNull
 
 @Entity(tableName = "movies")
@@ -24,8 +27,15 @@ data class Movie(
     var isFavorite: Boolean?,
     @ColumnInfo(name = "isWatched")
     var isWatched: Boolean?
+
+
 ){
+    @Ignore
+    var genres:List<Genre> = emptyList()
+    @Ignore
+    var videos: List<Video> = emptyList()
     override fun toString(): String {
-        return "Movie(id=$id, titlu='$title', poster_path='$poster_path', release_date='$release_date', overview='$overview', isFavorite=$isFavorite, isWatched=$isWatched)"
+        return "Movie(id=$id, title='$title', poster_path=$poster_path, release_date='$release_date', overview='$overview', isFavorite=$isFavorite, isWatched=$isWatched, genres=$genres, videos=$videos)"
     }
+
 }

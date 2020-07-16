@@ -1,5 +1,8 @@
 package com.mobiversal.movieapplication.movie
 
+import com.mobiversal.movieapplication.genre.GenreDTO
+import com.mobiversal.movieapplication.movie.video.VideoDTO
+import com.mobiversal.movieapplication.movie.video.VideosDTO
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
@@ -18,8 +21,14 @@ data class MovieDTO(
 
     var isFavorite: Boolean?,
 
-    var isWatched: Boolean?) {
+    var isWatched: Boolean?,
+
+    var genres: List<GenreDTO>?,
+
+    @Json(name = "videos")
+    var videosDTO: VideosDTO?
+) {
     override fun toString(): String {
-        return "MovieDTO(id=$id, titlu='$title', poster_path='$poster_path', release_date='$release_date', overview='$overview', isFavorite=$isFavorite, isWatched=$isWatched)"
+        return "MovieDTO(id=$id, title='$title', poster_path=$poster_path, release_date='$release_date', overview='$overview', isFavorite=$isFavorite, isWatched=$isWatched, genres=$genres, videosDTO=$videosDTO)"
     }
 }
