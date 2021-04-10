@@ -1,6 +1,6 @@
 # Movie-App
 Project created in internship at Mobiversal june-july 2020<br/>
-Here is a screenshots from the app:<br/>
+Here is some screenshots from the app:<br/>
 ![app (12)](https://user-images.githubusercontent.com/50969642/114272895-9d159380-9a20-11eb-8487-29d6080da606.jpg)
 ![app (11)](https://user-images.githubusercontent.com/50969642/114272890-9c7cfd00-9a20-11eb-954e-e389292db964.jpg)
 ![app (9)](https://user-images.githubusercontent.com/50969642/114272883-98e97600-9a20-11eb-8d75-8095aa030b20.jpg)
